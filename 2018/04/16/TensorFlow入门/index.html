@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 小书匠 | linxid</title>
+  <title>linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命途多舛">
-<meta property="og:type" content="website">
+  <meta name="description" content="TensorFlow入门(一)">
+<meta property="og:type" content="article">
 <meta property="og:title" content="linxid">
-<meta property="og:url" content="http://yoursite.com/tags/小书匠/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/TensorFlow入门/index.html">
 <meta property="og:site_name" content="linxid">
-<meta property="og:description" content="命途多舛">
+<meta property="og:description" content="TensorFlow入门(一)">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-c46da241c305037d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-3a37569329ed0ff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-17T04:59:59.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linxid">
-<meta name="twitter:description" content="命途多舛">
+<meta name="twitter:description" content="TensorFlow入门(一)">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/665202-c46da241c305037d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
   
@@ -153,72 +157,221 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-TensorFlow入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TensorFlow入门-一"><a href="#TensorFlow入门-一" class="headerlink" title="TensorFlow入门(一)"></a>TensorFlow入门(一)</h1><p><img src="https://upload-images.jianshu.io/upload_images/665202-c46da241c305037d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="da9d6629fbaad81c1b2bc35526990404.jpg"></p>
+<a id="more"></a>
+<ul>
+<li>Github主页：<a href="https://linxid.github.io/" target="_blank" rel="noopener">https://linxid.github.io/</a></li>
+<li>知乎：<a href="https://www.zhihu.com/people/dong-wen-hui-90/activities" target="_blank" rel="noopener">https://www.zhihu.com/people/dong-wen-hui-90/activities</a></li>
+<li>CSDN：<a href="https://blog.csdn.net/linxid" target="_blank" rel="noopener">https://blog.csdn.net/linxid</a></li>
+</ul>
+<h2 id="1-计算图"><a href="#1-计算图" class="headerlink" title="1.计算图"></a>1.计算图</h2><p>首先解释什么是计算图,了解TensorFlow的计算模型.</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/665202-3a37569329ed0ff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>和我们常见的程序计算框架不同,并不是赋值,或者计算后,TensorFlow立马完成这些操作,而是将这些操作,赋予在一个图中,这个图可以简单地认为是我们常见的流程图,只不过更加的详细,包括每一步操作(op)和变量的名字.</p>
+<p>因为神经网络的运行,需要很大的计算量,如果循环往复的赋值计算,将会带来很大的麻烦,所以TensorFlow采用计算图模型,包括其他很多框架都是采用同样的模型.</p>
+<p>比如说,我们建立一个神经网络,那我们首先,定义好变量(参数),然后每一步计算,包括输出.当定以好之后,我们建立一个会话(Session),在这个会话中运行图模型.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf.get_default_graph()获取默认的计算图</span></span><br><span class="line"><span class="comment"># a.graph可以查看张量所属的计算图</span></span><br><span class="line">print(a.graph <span class="keyword">is</span> tf.get_default_graph())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立两个不同的计算图,然后分别输出两个变量</span></span><br><span class="line">g1 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g1.as_default():</span><br><span class="line">    v = tf.get_variable(</span><br><span class="line">        <span class="string">'v'</span>, initializer=tf.zeros([<span class="number">2</span>,<span class="number">3</span>],tf.float32)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">g2 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g2.as_default():</span><br><span class="line">    v = tf.get_variable(</span><br><span class="line">        <span class="string">'v'</span>,initializer=tf.ones([<span class="number">2</span>,<span class="number">3</span>],tf.float32)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<h2 id="2-TensorFlow中的数据类型"><a href="#2-TensorFlow中的数据类型" class="headerlink" title="2. TensorFlow中的数据类型"></a>2. TensorFlow中的数据类型</h2><h3 id="2-1-tf-constant-常量"><a href="#2-1-tf-constant-常量" class="headerlink" title="2.1 tf.constant():常量"></a>2.1 tf.constant():常量</h3><p>TensorFlow中的张量模型,也就是我们所说的Tensor的意思.</p>
+<p>在TensorFlow中完成的是一步赋值过程,将定义的一个张量保存在变量a或b中.<strong>a和b保存的不是张量的值,而是这些数字的运算过程.</strong></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><ul>
+<li>1.张量三属性:名字,维度,类型(一般为tf.float32);</li>
+<li>2.运算时,维度和类型要保持一直;</li>
+<li>3.名字给出了张量的唯一标识符,同事给出变量是如何计算的;</li>
+<li>4.张量的计算和普通计算是不同的,保存的不是数值,而是计算过程!!!!</li>
+</ul>
+<h4 id="张量的作用"><a href="#张量的作用" class="headerlink" title="张量的作用:"></a>张量的作用:</h4><ul>
+<li>1.对中间计算结果的引用,增加代码的可读性</li>
+<li>2.计算图构造完成后,用来获得计算结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>, <span class="number">2.0</span>], name=<span class="string">'a'</span>)</span><br><span class="line">b = tf.constant([<span class="number">2.0</span>, <span class="number">3.0</span>], name=<span class="string">'b'</span>)</span><br><span class="line"><span class="comment"># 不管是张量直接相加,还是tf.add二者的作用是一致的</span></span><br><span class="line">result1 = a + b</span><br><span class="line">result2 = tf.add(a,b,name=<span class="string">'add'</span>)</span><br><span class="line">print(result1)</span><br><span class="line">print(result2)</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-tf-Variable"><a href="#2-2-tf-Variable" class="headerlink" title="2.2 tf.Variable()"></a>2.2 tf.Variable()</h3><p>专门用来,保存和更新神经网络中的参数,所以我们在建立神经网络模型参数的时候,使用tf.Variable()类型.</p>
+<h5 id="常用的常数生成函数"><a href="#常用的常数生成函数" class="headerlink" title="常用的常数生成函数:"></a>常用的常数生成函数:</h5><ul>
+<li>tf.zeros()</li>
+<li>tf.ones()</li>
+<li>tf.fill()<h5 id="常用的随机数生成函数"><a href="#常用的随机数生成函数" class="headerlink" title="常用的随机数生成函数:"></a>常用的随机数生成函数:</h5></li>
+<li><strong>tf.random_normal(维度,标准差,类型)</strong></li>
+<li>tf.truncated_normal()</li>
+<li>tf.random_uniform()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>], stddev=<span class="number">1</span>, seed=<span class="number">1</span>))</span><br><span class="line"><span class="comment"># 与上类似,维度([3,1])</span></span><br><span class="line">w2 = tf.Variable(tf.random_normal([<span class="number">3</span>,<span class="number">1</span>], stddev=<span class="number">1</span>, seed=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-tf-placeholder"><a href="#2-3-tf-placeholder" class="headerlink" title="2.3 tf.placeholder()"></a>2.3 tf.placeholder()</h3><p>在前面定义张量时,我们使用的是tf.constant().我们都知道神经网络的训练需要上千上万,甚至几百万的循环迭代,而每次循环迭代,每次生成一个常量,TensorFlow就会在计算图中增加一个节点,最后就会使得,图异常复杂.所以TensorFlow引入tf.placeholder机制.</p>
+<p>tf.placeholder相当于提前为变量,定义,开拓了一个位置,这个位置的数据在程序运行时被指定.也就是在计算图中,我们只有一个位置,这个位置的值会不断改变,这样就避免了重复生成.</p>
+<h4 id="三个属性"><a href="#三个属性" class="headerlink" title="三个属性:"></a>三个属性:</h4><ul>
+<li>类型</li>
+<li>维度</li>
+<li>名字</li>
+</ul>
+<p>运行时,使用feed_dict来定义输入.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, shape=(<span class="keyword">None</span>, <span class="number">2</span>), name=<span class="string">'x-input'</span>)</span><br><span class="line">y_ = tf.placeholder(tf.float32, shape=(<span class="keyword">None</span>, <span class="number">1</span>), name=<span class="string">'y-input'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-会话-Session"><a href="#3-会话-Session" class="headerlink" title="3.会话(Session)"></a>3.会话(Session)</h2><p>前面我们已经提到了计算图模型,在TensorFlow中,我们使用会话(Session)来执行定义好的计算.会话拥有并管理TensorFlow中的所有资源,运行结束后,需要及时回收资源.</p>
+<h3 id="3-1-模式一"><a href="#3-1-模式一" class="headerlink" title="3.1 模式一:"></a>3.1 模式一:</h3><p>调用会话生成函数,然后关闭会话函数.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line"><span class="keyword">with</span> sess.as_default():</span><br><span class="line">    print(result2.eval())</span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这两个有同样的功能</span></span><br><span class="line">print(sess.run(result2))</span><br><span class="line">print(<span class="string">'\n'</span>)</span><br><span class="line">print(result2.eval(session=sess))</span><br><span class="line">print(<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-模式二"><a href="#3-2-模式二" class="headerlink" title="3.2 模式二:"></a>3.2 模式二:</h3><p>利用上下文管理器,来使用会话,自动释放资源.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g1) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.global_variables_initializer().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">''</span>,reuse=<span class="keyword">True</span>):</span><br><span class="line">        print(sess.run(tf.get_variable(<span class="string">'v'</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g2) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.global_variables_initializer().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">''</span>, reuse=<span class="keyword">True</span>):</span><br><span class="line">        print(sess.run(tf.get_variable(<span class="string">'v'</span>)))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-3-模式三"><a href="#3-3-模式三" class="headerlink" title="3.3 模式三:"></a>3.3 模式三:</h3><p>交互式会话模式,尤其是在Ipython(Jupyter Notebook),这种交互式的环境中,使用非常方便.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用交互式会话模式</span></span><br><span class="line">sess1 = tf.InteractiveSession()</span><br><span class="line">print(sess1.run(result2))</span><br><span class="line">sess1.close()</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-TensorFlow实现神经网络"><a href="#4-TensorFlow实现神经网络" class="headerlink" title="4.TensorFlow实现神经网络"></a>4.TensorFlow实现神经网络</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入tensorflow库</span></span><br><span class="line"><span class="keyword">import</span>  tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 导入Numpy工具包,生成一个模拟数据集</span></span><br><span class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span>  RandomState</span><br><span class="line"></span><br><span class="line"><span class="comment"># 采用Mini-batch训练方法,速度快,准确率高</span></span><br><span class="line">batch_size = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先定义两个权重(变量),满足正太随机分布,维度([2,3]),标准差是1, seed使用随机种子,保证每次运行的结果一样</span></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>], stddev=<span class="number">1</span>, seed=<span class="number">1</span>))</span><br><span class="line"><span class="comment"># 与上类似,维度([3,1])</span></span><br><span class="line">w2 = tf.Variable(tf.random_normal([<span class="number">3</span>,<span class="number">1</span>], stddev=<span class="number">1</span>, seed=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置x变量,使用placeholder,为变量提供一个位置.若使用variable等格式,每次赋值,都会在计算图中</span></span><br><span class="line"><span class="comment"># 增加一个结点,训练几百万轮,会使得计算图非常复杂,所以引入placeholder机制.</span></span><br><span class="line"><span class="comment"># 维度([None,2]),</span></span><br><span class="line">x = tf.placeholder(tf.float32, shape=(<span class="keyword">None</span>, <span class="number">2</span>), name=<span class="string">'x-input'</span>)</span><br><span class="line">y_ = tf.placeholder(tf.float32, shape=(<span class="keyword">None</span>, <span class="number">1</span>), name=<span class="string">'y-input'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># matmul实现矩阵相乘,这里tensorflow使用计算图方式,与numpy的矩阵相乘是不一样的.</span></span><br><span class="line">a = tf.matmul(x, w1)</span><br><span class="line">y = tf.matmul(a, w2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过极力函数sigmoid(),实现非线性化</span></span><br><span class="line">y = tf.sigmoid(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数,此处使用交叉熵,以后讨论,用来表征预测数据和真实数据的误差</span></span><br><span class="line">cross_entropy = -tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, <span class="number">1e-10</span>, <span class="number">1.0</span>))</span><br><span class="line">                                + (<span class="number">1</span> - y) * tf.log(tf.clip_by_value(<span class="number">1</span>-y, <span class="number">1e-10</span>, <span class="number">1.0</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义反向传播算法,来优化NN中的参数,此处使用AdamOptimizer</span></span><br><span class="line"><span class="comment"># 学习率:0.001,优化目标:cross_entropy</span></span><br><span class="line">train_step = tf.train.AdamOptimizer(<span class="number">0.001</span>).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过随机数生成模拟数据集</span></span><br><span class="line">rdm = RandomState(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练数据X:数据集大小[128,2]</span></span><br><span class="line"><span class="comment"># 128个样例,2个属性</span></span><br><span class="line">dataSet_size = <span class="number">128</span></span><br><span class="line">X = rdm.rand(dataSet_size, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签数据Y:使用布尔变量,如果x1 + x2 &lt; 1则认为是正样本,也就是为1</span></span><br><span class="line"><span class="comment"># 否则认为是负样本,也就是0.</span></span><br><span class="line">Y = [[int(x1 + x2 &lt; <span class="number">1</span>)] <span class="keyword">for</span> (x1,x2) <span class="keyword">in</span> X]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个回话,来运行计算图</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="comment"># 对所有变量进行初始化</span></span><br><span class="line">    init_op = tf.global_variables_initializer()</span><br><span class="line">    sess.run(init_op)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出w1和w2值,在训练之前</span></span><br><span class="line">    print(sess.run(w1))</span><br><span class="line">    print(sess.run(w2))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置迭代次数为5000次</span></span><br><span class="line">    Steps = <span class="number">5000</span></span><br><span class="line">    <span class="comment"># 循环</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(Steps):</span><br><span class="line">        <span class="comment"># 选取batch_size个样本,取余</span></span><br><span class="line">        start = (i*batch_size)%dataSet_size</span><br><span class="line">        <span class="comment"># 避免超出训练集的范围</span></span><br><span class="line">        end = min(start + batch_size, dataSet_size)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 对选取的样本进行训练,因为是placeholder,使用字典对其赋值,并迭代更新参数</span></span><br><span class="line">        sess.run(train_step, feed_dict=&#123;x : X[start:end], y_ : Y[start:end]&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 当迭代次数为100的倍数的时候,输出所有数据上的交叉熵</span></span><br><span class="line">        <span class="keyword">if</span> i%<span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            total_cross_entropy = sess.run(cross_entropy, feed_dict=&#123;x:X, y_ : Y&#125;)</span><br><span class="line">            print(<span class="string">"After %d training step(s), cross entropy on all data is %g"</span> % (i, total_cross_entropy))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出训练过后的参数(权重)</span></span><br><span class="line">    print(sess.run(w1))</span><br><span class="line">    print(sess.run(w2))</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>送人玫瑰，手留余香<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/09/第一篇/" class="archive-article-date">
-  	<time datetime="2018-04-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/09/第一篇/">MarkDown语法手册</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小书匠</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">帮助</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/16/TensorFlow入门/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/17/TensorFlow零基础入门教程-一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          TensorFlow零基础入门教程(一)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/04/16/Android-Studio安装教程-win10-完整最新版/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Studio安装教程-win10-完整最新版</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TensorFlow入门-一"><span class="toc-number">1.</span> <span class="toc-text">TensorFlow入门(一)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算图"><span class="toc-number">1.1.</span> <span class="toc-text">1.计算图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-TensorFlow中的数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">2. TensorFlow中的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-tf-constant-常量"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 tf.constant():常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">注意:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#张量的作用"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">张量的作用:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-tf-Variable"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 tf.Variable()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#常用的常数生成函数"><span class="toc-number">1.2.2.0.1.</span> <span class="toc-text">常用的常数生成函数:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常用的随机数生成函数"><span class="toc-number">1.2.2.0.2.</span> <span class="toc-text">常用的随机数生成函数:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-tf-placeholder"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 tf.placeholder()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三个属性"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">三个属性:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-会话-Session"><span class="toc-number">1.3.</span> <span class="toc-text">3.会话(Session)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-模式一"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 模式一:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-模式二"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 模式二:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-模式三"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 模式三:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-TensorFlow实现神经网络"><span class="toc-number">1.4.</span> <span class="toc-text">4.TensorFlow实现神经网络</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -246,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
