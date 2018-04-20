@@ -155,6 +155,159 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Matlab图像处理-灰度变换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/21/Matlab图像处理-灰度变换/">Matlab图像处理-灰度变换</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/21/Matlab图像处理-灰度变换/" class="archive-article-date">
+  	<time datetime="2018-04-20T20:44:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/665202-87b69cfbbf686b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="timg.jpg"></p>
+<ul>
+<li>Github主页：<a href="https://linxid.github.io/" target="_blank" rel="noopener">https://linxid.github.io/</a></li>
+<li>知乎：<a href="https://zhuanlan.zhihu.com/p/35775368" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35775368</a></li>
+<li>CSDN：<a href="https://blog.csdn.net/linxid/article/details/79973258" target="_blank" rel="noopener">https://blog.csdn.net/linxid/article/details/79973258</a></li>
+</ul>
+<hr>
+<p><strong>亮度（灰度）变换</strong>是一种非常重要的空间域内处理图像的方法，主要介绍几个亮度变换函数，以及应用。</p>
+<h1 id="函数简介"><a href="#函数简介" class="headerlink" title="函数简介"></a>函数简介</h1><h2 id="1-imadjust"><a href="#1-imadjust" class="headerlink" title="1.imadjust"></a>1.imadjust</h2><p>该函数用来调整亮度，可以映射加权至更高的或更低输出值。</p>
+<ul>
+<li><p>imadjust是亮度变换的基本IPT工具，<strong>语法</strong>为：<br><code>g = imadjust(f,[low_ in  high_ in],[low_ out,  high_out],gamma);</code></p>
+</li>
+<li><p><strong>f</strong>：输入图像；<br><strong>low_in,high_in,low_out,high_out</strong>：将low_ in,至high _ in之间的灰度值映射到low _ out,high_ out。low_ in以下的值和high _ in以上的值被剪切掉。空矩阵默认为[0 1];<br><strong>gamma</strong>：决定曲线的形状，对gamma不同的值，如下图所示，默认参数为1.<br><img src="http://upload-images.jianshu.io/upload_images/665202-223c7e98e3e82e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+</li>
+</ul>
+<p><strong>注意</strong>：<br>1.除图像f外，imadjust的其他输入为[0 1]，不论图像的类。若f是unit8，则函数将乘以255。<br>2.若是high_out小于low_out怎会输出图像反转。</p>
+<h1 id="2-对数和对比度拉伸变换"><a href="#2-对数和对比度拉伸变换" class="headerlink" title="2.对数和对比度拉伸变换"></a>2.对数和对比度拉伸变换</h1><p>这两种变换时进行动态范围处理的基本工具。</p>
+<h3 id="对数变换"><a href="#对数变换" class="headerlink" title="对数变换"></a>对数变换</h3><ul>
+<li>实现语法：<code>g = c*log(1+double(f));</code><br>该函数的形状类似于gamma函数，但是gamma曲线形状可变，log不可变。</li>
+<li>主要应用：压缩动态范围<br>比如傅里叶频谱的显示范围很大，高值部分占优，通过log变换可以进行压缩，便于处理。</li>
+<li><strong>注意</strong>：期望将导致的压缩至还原为显示的全范围，以下方法实现。<br><code>gs = im2unit8(mat2gray(g));</code><br>mat2gray将值限定在[0,1]范围内，im2unit8将值限定在[0,255]范围内。<br>###对比度拉伸变换</li>
+<li>实现语法：<code>g = 1./(1 + (m./(double(f)+eps)).^E)</code><br><strong>E</strong>：控制函数的斜率<br><strong>m</strong>：显示的阈值，理想条件下及变成阈值函数。</li>
+<li>主要应用：可以将输入值低于m的灰度级压缩为较暗灰度级范围内，同样，将高于m的灰度级压缩为较亮范围内。<br><strong>变换图像如图所示</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/665202-8dbdd03ff2c14a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><h1 id="3-实例分析"><a href="#3-实例分析" class="headerlink" title="3.实例分析"></a>3.实例分析</h1>我们自己写一个m函数，实现多种亮度（灰度）变换的功能，同时输入变量可以放宽，通过检测输入变量的个数，来设置默认值。</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span> = <span class="title">intrans</span><span class="params">(f,varargin)</span></span></span><br><span class="line"><span class="comment">%intrans 函数对灰度图进行变换</span></span><br><span class="line"><span class="comment">%   g = intrans(f,'neg')计算输入图像的负片</span></span><br><span class="line"><span class="comment">%   </span></span><br><span class="line"><span class="comment">%   g = intrans(f,'log',c,class)计算c*log(1+f)对数拉伸变换</span></span><br><span class="line"><span class="comment">%   后两个参数省略，c默认为1，class用于确定输出的类型为‘unit8’和'unit16',</span></span><br><span class="line"><span class="comment">%   如果省略，输出类型默认和输入一样</span></span><br><span class="line"><span class="comment">%   g = intrans(f,'ganmma',gam)对图像做伽马变换，gam为要求的输入。</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%   </span></span><br><span class="line">error(nargchk(<span class="number">2</span>, <span class="number">4</span>, nargin));</span><br><span class="line"><span class="comment">%将输入参数的个数约束在2-4个</span></span><br><span class="line">classin = class(f);</span><br><span class="line"><span class="comment">%存储输入的类型，用以后用；</span></span><br><span class="line"><span class="keyword">if</span> strcmp(class(f),<span class="string">'double'</span>) &amp; max(f(:)) &gt; <span class="number">1</span> &amp; strcmp(varargin&#123;<span class="number">1</span>&#125;,<span class="string">'log'</span>)</span><br><span class="line">    f = mat2gray(f);</span><br><span class="line"><span class="keyword">else</span> <span class="comment">%对于f的其他类型转换成double类型</span></span><br><span class="line">    f = im2double(f);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%决定转换的类型</span></span><br><span class="line">method = varargin&#123;<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">%varargin是个单元数组</span></span><br><span class="line"><span class="comment">%进行确定好的转换</span></span><br><span class="line"><span class="keyword">switch</span> method</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'neg'</span></span><br><span class="line">        g = imcomplement(f);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'log'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) == <span class="number">1</span></span><br><span class="line">            c = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">2</span></span><br><span class="line">            c = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">3</span></span><br><span class="line">            c = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">            classin = varargin&#123;<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            error(<span class="string">'Incorrect number f input for the log option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        g = c * <span class="built_in">log</span>(<span class="number">1</span> + double(f));</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'gamma'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) &lt; <span class="number">2</span></span><br><span class="line">            error(<span class="string">'Not enough inputs for the gamma option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        gam = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">        g = imadjust(f,[ ],[ ],gam);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'stretch'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) == <span class="number">1</span></span><br><span class="line">            <span class="comment">%使用默认值</span></span><br><span class="line">            m = mean2(f);</span><br><span class="line">            E = <span class="number">4.0</span>;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">3</span></span><br><span class="line">            m = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">            E = varargin&#123;<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            error(<span class="string">'Incorrect number of inputs for the stretch option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        g = <span class="number">1.</span>/(<span class="number">1</span> + (m./(f + <span class="built_in">eps</span>)).^E)</span><br><span class="line">    <span class="keyword">otherwise</span></span><br><span class="line">        error(<span class="string">'Unknown enhancement method.'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%图像格式转变为输入图像的类型</span></span><br><span class="line">g = mat2gray(g);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">灰度变换</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/21/Matlab图像处理-灰度变换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-指数平滑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/19/指数平滑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-TensorFlow零基础入门教程-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -621,23 +774,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
+                <a href="javascript:void(0)" class="js-tag color5">灰度变换</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,22 +806,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">余凯</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">地平线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -690,6 +819,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">帮助</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">余凯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">地平线</a>
               </li>
             
             <div class="clearfix"></div>
