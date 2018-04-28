@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 深度学习 | linxid</title>
+  <title>Scikit-learn快速入门教程和实例（一） | linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命途多舛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="linxid">
-<meta property="og:url" content="http://yoursite.com/tags/深度学习/index.html">
+  <meta name="keywords" content="机器学习,python,machine learning,Sklearn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scikit-learn快速入门教程和实例（一）">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/Scikit-learn快速入门教程和实例（一）/index.html">
 <meta property="og:site_name" content="linxid">
-<meta property="og:description" content="命途多舛">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-c80c32fc5c6ff6ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/sklearn/2_1_1.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-95ef90d9a9d6eb7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-54062a492155d898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-28T05:38:49.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linxid">
-<meta name="twitter:description" content="命途多舛">
+<meta name="twitter:title" content="Scikit-learn快速入门教程和实例（一）">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/665202-c80c32fc5c6ff6ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
   
@@ -153,76 +157,216 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Scikit-learn快速入门教程和实例（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/17/TensorFlow零基础入门教程-一/" class="archive-article-date">
-  	<time datetime="2018-04-17T05:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/17/TensorFlow零基础入门教程-一/">TensorFlow零基础入门教程(一)</a>
+    <h1 class="article-title" itemprop="name">
+      Scikit-learn快速入门教程和实例（一）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/28/Scikit-learn快速入门教程和实例（一）/" class="archive-article-date">
+  	<time datetime="2018-04-28T05:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/665202-c80c32fc5c6ff6ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<h5 id="Github主页：https-linxid-github-io"><a href="#Github主页：https-linxid-github-io" class="headerlink" title="Github主页：https://linxid.github.io/"></a>Github主页：<a href="https://linxid.github.io/" target="_blank" rel="noopener">https://linxid.github.io/</a></h5><h5 id="知乎：https-www-zhihu-com-people-dong-wen-hui-90-activities"><a href="#知乎：https-www-zhihu-com-people-dong-wen-hui-90-activities" class="headerlink" title="知乎：https://www.zhihu.com/people/dong-wen-hui-90/activities"></a>知乎：<a href="https://www.zhihu.com/people/dong-wen-hui-90/activities" target="_blank" rel="noopener">https://www.zhihu.com/people/dong-wen-hui-90/activities</a></h5><h5 id="CSDN：https-blog-csdn-net-linxid-article-details-79466078"><a href="#CSDN：https-blog-csdn-net-linxid-article-details-79466078" class="headerlink" title="CSDN：https://blog.csdn.net/linxid/article/details/79466078"></a>CSDN：<a href="https://blog.csdn.net/linxid/article/details/79466078" target="_blank" rel="noopener">https://blog.csdn.net/linxid/article/details/79466078</a></h5><hr>
+<h1 id="一，什么是SKlearn"><a href="#一，什么是SKlearn" class="headerlink" title="一，什么是SKlearn"></a>一，什么是SKlearn</h1><p>SciKit learn的简称是SKlearn，是一个python库，专门用于机器学习的模块。<br>以下是它的官方网站，文档等资源都可以在里面找到<a href="http://scikit-learn.org/stable/#。" target="_blank" rel="noopener">http://scikit-learn.org/stable/#。</a></p>
+<p><strong>SKlearn包含的机器学习方式：</strong><br>    分类，回归，无监督，数据降维，数据预处理等等。</p>
+<p>包含了常见的大部分机器学习方法。<br>    关于SKlearn的安装，网上教程很多，再次不赘述。建议使用Anaconda，可以方便的安装各种库。</p>
+<p><strong>Anaconda教程</strong>：<a href="http://python.jobbole.com/87522/" target="_blank" rel="noopener">http://python.jobbole.com/87522/</a></p>
+<p>SKlearn给出了如何选择正确的方法：<br><img src="https://morvanzhou.github.io/static/results/sklearn/2_1_1.png" alt="SKlearn"><br>官网清晰图：<br><a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html</a><br>图表对于什么样的问题，采用什么样的方法给出了清晰的描述，包括数据量不同的区分。</p>
+<h1 id="二，SKlearn的强大数据库"><a href="#二，SKlearn的强大数据库" class="headerlink" title="二，SKlearn的强大数据库"></a>二，SKlearn的强大数据库</h1><p><strong>数据库网址</strong>：<a href="http://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets</a><br>里面包含了很多数据，可以直接拿来使用。<br><img src="http://upload-images.jianshu.io/upload_images/665202-95ef90d9a9d6eb7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><strong>例如：</strong></p>
+<h3 id="1-鸢尾花数据集"><a href="#1-鸢尾花数据集" class="headerlink" title="1.鸢尾花数据集"></a>1.鸢尾花数据集</h3><p>打开里面的鸢尾花数据集，我们可以看到页面上同样有调用示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用模块</span></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">data = load_iris()</span><br><span class="line"><span class="comment">#导入数据和标签</span></span><br><span class="line">data_X = load_data.data</span><br><span class="line">data_y = load.data.target</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-波士顿房价数据集"><a href="#2-波士顿房价数据集" class="headerlink" title="2.波士顿房价数据集"></a>2.波士顿房价数据集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#换种方式调用模块，注意区别</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">loaded_data = datasets.load_boston()</span><br><span class="line"><span class="comment">#导入数据</span></span><br><span class="line">data_X = loaded_data.data</span><br><span class="line">data_y = loaded_data.target</span><br></pre></td></tr></table></figure>
+<p>而且在SKlearn官网，对于每一个数据集，在后面都给出了，使用该数据集的示例，例如Boston房价数据集：<br><img src="http://upload-images.jianshu.io/upload_images/665202-54062a492155d898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="三，通用学习模式"><a href="#三，通用学习模式" class="headerlink" title="三，通用学习模式"></a>三，通用学习模式</h1><p>SKlearn中学习模式的调用，有很强的统一性，很多都是类似的，学会一个，其他基本差不多。</p>
+<h3 id="1-鸢尾花数据集-1"><a href="#1-鸢尾花数据集-1" class="headerlink" title="1.鸢尾花数据集"></a>1.鸢尾花数据集</h3><p>针对上述已经导入的鸢尾花数据集，继续对其进行分析。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="comment">#k近邻函数</span></span><br><span class="line">fro, sklearn.neighbors <span class="keyword">import</span> KNeighborClassifier</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line"><span class="comment">#导入数据和标签</span></span><br><span class="line">iris_X = iris.data</span><br><span class="line">iris_y = iris.target</span><br><span class="line"><span class="comment">#划分为训练集和测试集数据</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(iris_X, iris_y, test_size=<span class="number">0.3</span>)</span><br><span class="line"><span class="comment">#print(y_train)</span></span><br><span class="line"><span class="comment">#设置knn分类器</span></span><br><span class="line">knn = KNeighborsClassifier()</span><br><span class="line"><span class="comment">#进行训练</span></span><br><span class="line">knn.fit(X_train,y_train)</span><br><span class="line"><span class="comment">#使用训练好的knn进行数据预测</span></span><br><span class="line">print(knn.predict(X_test))</span><br><span class="line">print(y_test)</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-波士顿房价数据集-1"><a href="#2-波士顿房价数据集-1" class="headerlink" title="2.波士顿房价数据集"></a>2.波士顿房价数据集</h3><p>这里，我们调用房价数据集，然后使用线性回归的方法对其进行预测<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#同样首先，我们调用模块</span></span><br><span class="line"><span class="comment">#matplotlib是python专门用于画图的库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="comment">#调用线性回归函数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入数据集</span></span><br><span class="line"><span class="comment">#这里将全部数据用于训练，并没有对数据进行划分，上例中</span></span><br><span class="line"><span class="comment">#将数据划分为训练和测试数据，后面会讲到交叉验证</span></span><br><span class="line">loaded_data = datasets.load_boston()</span><br><span class="line">data_X = loaded_data.data</span><br><span class="line">data_y = loaded_data.target</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置线性回归模块</span></span><br><span class="line">model = LinearRegression()</span><br><span class="line"><span class="comment">#训练数据，得出参数</span></span><br><span class="line">model.fit(data_X, data_y)</span><br><span class="line"></span><br><span class="line"><span class="comment">#利用模型，对新数据，进行预测，与原标签进行比较</span></span><br><span class="line">print(model.predict(data_X[:<span class="number">4</span>,:]))</span><br><span class="line">print(data_y[:<span class="number">4</span>])</span><br></pre></td></tr></table></figure></p>
+<p>以上众多内容，参照<strong>莫烦教程</strong>，更详细的内容可以去他官网查看。<br><a href="https://morvanzhou.github.io/" target="_blank" rel="noopener">https://morvanzhou.github.io/</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>送人玫瑰，手留余香<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计算图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">张量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Sklearn</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/28/Scikit-learn快速入门教程和实例（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/04/22/GBDT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Github主页：https-linxid-github-io"><span class="toc-number">1.</span> <span class="toc-text">Github主页：https://linxid.github.io/</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#知乎：https-www-zhihu-com-people-dong-wen-hui-90-activities"><span class="toc-number">2.</span> <span class="toc-text">知乎：https://www.zhihu.com/people/dong-wen-hui-90/activities</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSDN：https-blog-csdn-net-linxid-article-details-79466078"><span class="toc-number">3.</span> <span class="toc-text">CSDN：https://blog.csdn.net/linxid/article/details/79466078</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一，什么是SKlearn"><span class="toc-number"></span> <span class="toc-text">一，什么是SKlearn</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二，SKlearn的强大数据库"><span class="toc-number"></span> <span class="toc-text">二，SKlearn的强大数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-鸢尾花数据集"><span class="toc-number"></span> <span class="toc-text">1.鸢尾花数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-波士顿房价数据集"><span class="toc-number"></span> <span class="toc-text">2.波士顿房价数据集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三，通用学习模式"><span class="toc-number"></span> <span class="toc-text">三，通用学习模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-鸢尾花数据集-1"><span class="toc-number"></span> <span class="toc-text">1.鸢尾花数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-波士顿房价数据集-1"><span class="toc-number"></span> <span class="toc-text">2.波士顿房价数据集</span></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -250,9 +394,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

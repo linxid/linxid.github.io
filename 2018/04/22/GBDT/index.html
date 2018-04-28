@@ -6,18 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 深度学习 | linxid</title>
+  <title>linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命途多舛">
-<meta property="og:type" content="website">
+  <meta name="description" content="XGBoost和LightGBM已经成为Kaggle，天池等比赛和数据研究，必用的算法。这篇文章，从决策树出发，一步步引出GBDT、XGBoost和LightGBM，讲解原理，比较不同，介绍应用。 一、决策树(Decision Tree)1.基本概念决策树就像是我们初中学过的流程图，一步步去判断条件，是或否依次进行不同的选择，只不过决策树不只是“是”和“否”这两个判断条件。决策树不只可以用与分类问">
+<meta property="og:type" content="article">
 <meta property="og:title" content="linxid">
-<meta property="og:url" content="http://yoursite.com/tags/深度学习/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/GBDT/index.html">
 <meta property="og:site_name" content="linxid">
-<meta property="og:description" content="命途多舛">
+<meta property="og:description" content="XGBoost和LightGBM已经成为Kaggle，天池等比赛和数据研究，必用的算法。这篇文章，从决策树出发，一步步引出GBDT、XGBoost和LightGBM，讲解原理，比较不同，介绍应用。 一、决策树(Decision Tree)1.基本概念决策树就像是我们初中学过的流程图，一步步去判断条件，是或否依次进行不同的选择，只不过决策树不只是“是”和“否”这两个判断条件。决策树不只可以用与分类问">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-88d4e4d08b4aadca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-d448f39bc5a8214f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-4a457f7405c2600c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-d53aa4a00ba112ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-705c993618717251.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-373f476feaa7198a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-beba1af45e5488f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-1387bcea86676cc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-05f0f6440116df2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-4dc5270fc68633af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-5a9c410e1398be96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-79317fdb2314c9c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-50ca4d8157e68dc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-28T05:26:57.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linxid">
-<meta name="twitter:description" content="命途多舛">
+<meta name="twitter:description" content="XGBoost和LightGBM已经成为Kaggle，天池等比赛和数据研究，必用的算法。这篇文章，从决策树出发，一步步引出GBDT、XGBoost和LightGBM，讲解原理，比较不同，介绍应用。 一、决策树(Decision Tree)1.基本概念决策树就像是我们初中学过的流程图，一步步去判断条件，是或否依次进行不同的选择，只不过决策树不只是“是”和“否”这两个判断条件。决策树不只可以用与分类问">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/665202-88d4e4d08b4aadca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
   
@@ -153,76 +168,214 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GBDT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XGBoost和LightGBM已经成为Kaggle，天池等比赛和数据研究，必用的算法。这篇文章，从决策树出发，一步步引出GBDT、XGBoost和LightGBM，讲解原理，比较不同，介绍应用。</p>
+<h1 id="一、决策树-Decision-Tree"><a href="#一、决策树-Decision-Tree" class="headerlink" title="一、决策树(Decision Tree)"></a>一、决策树(Decision Tree)</h1><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h2><p><img src="http://upload-images.jianshu.io/upload_images/665202-88d4e4d08b4aadca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>决策树就像是我们初中学过的<strong>流程图</strong>，一步步去判断条件，是或否依次进行不同的选择，只不过决策树不只是“是”和“否”这两个判断条件。<br>决策树不只可以用与分类问题，回归问题同样适用。</p>
+<h4 id="比如说图中的过滤邮件的流程图："><a href="#比如说图中的过滤邮件的流程图：" class="headerlink" title="比如说图中的过滤邮件的流程图："></a>比如说图中的过滤邮件的流程图：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>:</span><br><span class="line">  是这个域名发送的邮件:无聊时阅读</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  转下一步</span><br><span class="line"><span class="keyword">if</span>:</span><br><span class="line">  包含曲棍球:需要及时处理</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  垃圾邮件</span><br></pre></td></tr></table></figure>
+<h2 id="2-构造决策树"><a href="#2-构造决策树" class="headerlink" title="2.构造决策树"></a>2.构造决策树</h2><p>决策树的构建是我们的核心内容。决策树构建一般分为为3个步骤：<strong>特征选择、决策树的生成和决策树的修剪。</strong><br>数据收集是否充足，特征选择是否恰当，决策树的修剪，都将影响到我们的准确率和训练速度。接下来主要便是介绍特征选择。</p>
+<h2 id="所用到的数据："><a href="#所用到的数据：" class="headerlink" title="所用到的数据："></a>所用到的数据：</h2><p><img src="http://upload-images.jianshu.io/upload_images/665202-d448f39bc5a8214f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>通过所给的训练数据学习一个贷款申请的决策树，用于对未来的贷款申请进行分类，即当新的客户提出贷款申请时，根据申请人的特征利用决策树决定是否批准贷款申请。</p>
+<h2 id="3-特征选择"><a href="#3-特征选择" class="headerlink" title="3.特征选择"></a>3.特征选择</h2><h3 id="3-1-特征选择的重要性："><a href="#3-1-特征选择的重要性：" class="headerlink" title="3.1 特征选择的重要性："></a>3.1 特征选择的重要性：</h3><p>回想流程图，一组数据含有多个特征，而我们到底选择哪个特征，首先选择哪个特征，然后选择哪个，会影响到我们训练的速度和准确率。也就是如何选择最优划分的属性的问题。<br>主要有三个判断指标：<strong>信息增益</strong>(ID3算法)、<strong>增益率</strong>(C4.5算法)、<strong>基尼指数</strong>(CART算法)。括号中分别是不同的三种决策树的构建方法，与这三个指标一一对应，。本文主要介绍信息增益这个指标。</p>
+<h3 id="3-2-信息增益"><a href="#3-2-信息增益" class="headerlink" title="3.2 信息增益"></a>3.2 信息增益</h3><p>在划分数据集前后，信息发生的变化称为<strong>信息增益</strong>，获得信息增益最高的特征是最好的选择。</p>
+<h4 id="3-2-1-香农熵"><a href="#3-2-1-香农熵" class="headerlink" title="3.2.1 香农熵"></a>3.2.1 香农熵</h4><p>集合信息的度量方式成为香农熵或者简称为熵(entropy)。熵是表示随机变量不确定性的度量。<strong>是度量样本信息和纯度最常用的一种指标。</strong></p>
+<ul>
+<li><p>多个分类中，某一分类<strong>样本信息</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/665202-4a457f7405c2600c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><strong>p(xi)</strong>：是该分类的概率。</p>
+</li>
+<li><p><strong>香农熵</strong>：算所有类别所有可能值包含的信息期望值(数学期望)<br><img src="http://upload-images.jianshu.io/upload_images/665202-d53aa4a00ba112ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li>n是分类的数目</li>
+</ul>
+<h5 id="编写代码计算经验熵"><a href="#编写代码计算经验熵" class="headerlink" title="编写代码计算经验熵"></a>编写代码计算经验熵</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">函数说明:创建测试数据集</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Parameters:</span></span><br><span class="line"><span class="string">    无</span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    dataSet - 数据集</span></span><br><span class="line"><span class="string">    labels - 分类属性</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    dataSet = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">'no'</span>],         <span class="comment">#数据集</span></span><br><span class="line">            [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">'no'</span>],</span><br><span class="line">            [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">'no'</span>],</span><br><span class="line">            [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">'no'</span>],</span><br><span class="line">            [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">'no'</span>],</span><br><span class="line">            [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="string">'yes'</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">'no'</span>]]</span><br><span class="line">    labels = [<span class="string">'不放贷'</span>, <span class="string">'放贷'</span>]             <span class="comment">#分类属性</span></span><br><span class="line">    <span class="keyword">return</span> dataSet, labels                <span class="comment">#返回数据集和分类属性</span></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">函数说明:计算给定数据集的经验熵(香农熵)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Parameters:</span></span><br><span class="line"><span class="string">    dataSet - 数据集</span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    shannonEnt - 经验熵(香农熵)</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calcShannonEnt</span><span class="params">(dataSet)</span>:</span></span><br><span class="line">    numEntires = len(dataSet)                        <span class="comment">#返回数据集的行数</span></span><br><span class="line">    labelCounts = &#123;&#125;                                <span class="comment">#保存每个标签(Label)出现次数的字典</span></span><br><span class="line">    <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:                            <span class="comment">#对每组特征向量进行统计</span></span><br><span class="line">        currentLabel = featVec[<span class="number">-1</span>]                    <span class="comment">#提取标签(Label)信息</span></span><br><span class="line">        <span class="keyword">if</span> currentLabel <span class="keyword">not</span> <span class="keyword">in</span> labelCounts.keys():    <span class="comment">#如果标签(Label)没有放入统计次数的字典,添加进去</span></span><br><span class="line">            labelCounts[currentLabel] = <span class="number">0</span></span><br><span class="line">        labelCounts[currentLabel] += <span class="number">1</span>                <span class="comment">#Label计数</span></span><br><span class="line">    shannonEnt = <span class="number">0.0</span>                                <span class="comment">#经验熵(香农熵)</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> labelCounts:                            <span class="comment">#计算香农熵</span></span><br><span class="line">        prob = float(labelCounts[key]) / numEntires    <span class="comment">#选择该标签(Label)的概率</span></span><br><span class="line">        shannonEnt -= prob * log(prob, <span class="number">2</span>)            <span class="comment">#利用公式计算</span></span><br><span class="line">    <span class="keyword">return</span> shannonEnt                                <span class="comment">#返回经验熵(香农熵)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    dataSet, features = createDataSet()</span><br><span class="line">    print(dataSet)</span><br><span class="line">    print(calcShannonEnt(dataSet))</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-2-信息增益"><a href="#3-2-2-信息增益" class="headerlink" title="3.2.2 信息增益"></a>3.2.2 信息增益</h4><p>信息增益无非就是，我们对原始数据根据不同的特征划分后，出现的新数据的香农熵，与原数据的香农熵的差。不要考虑什么条件概率，条件熵，只要抓住这一点，前后数据熵的变化即可，由于被划分后，数据的个数不同，所以不同的部分占有不同的权重，所以考虑进去权重即可，即使高中概率知识也可理解。<br><img src="http://upload-images.jianshu.io/upload_images/665202-705c993618717251.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h5 id="编写代码计算信息增益"><a href="#编写代码计算信息增益" class="headerlink" title="编写代码计算信息增益"></a>编写代码计算信息增益</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">splitDataSet</span><span class="params">(dataSet,axis, value)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    函数说明：</span></span><br><span class="line"><span class="string">        对数据集根据某个特征进行划分</span></span><br><span class="line"><span class="string">    :param dataSet: 被划分的数据集</span></span><br><span class="line"><span class="string">    :param axis: 划分根据的特征</span></span><br><span class="line"><span class="string">    :param value: 需要返回的特征的值</span></span><br><span class="line"><span class="string">    :return: 无</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    retDataSet = []     <span class="comment">#建立空列表，存储返回的数据集</span></span><br><span class="line">    <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:     <span class="comment">#遍历数据，一个对象一个对象的进行操作</span></span><br><span class="line">        <span class="keyword">if</span> featVec[axis] == value:      <span class="comment">#找到axis特征，等于value值得数据</span></span><br><span class="line">            reducedFeatVec = featVec[:axis]    <span class="comment">#选出去除axis特征，只保留其他特征的数据</span></span><br><span class="line">            reducedFeatVec.extend(featVec[axis+<span class="number">1</span>:])     <span class="comment">#保留后面的</span></span><br><span class="line">            retDataSet.append(reducedFeatVec)       <span class="comment">#对数据进行连接，按照列表形式</span></span><br><span class="line">    <span class="keyword">return</span> retDataSet   <span class="comment">#返回划分后被取出的数据集，即满足条件的数据</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">chooseBestFeaturesToSplit</span><span class="params">(dataSet)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    函数说明：</span></span><br><span class="line"><span class="string">        选择最佳的分类属性</span></span><br><span class="line"><span class="string">    :param ：dataSet-数据集</span></span><br><span class="line"><span class="string">    :return: bestFeature-最佳划分属性</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    numFeatures = len(dataSet[<span class="number">0</span>]) - <span class="number">1</span>       <span class="comment">#特征数量，去除最后一个标签值</span></span><br><span class="line">    baseEntropy = calShannoEnt(dataSet)     <span class="comment">#计算原始数据的香农熵</span></span><br><span class="line">    bestInfoGain = <span class="number">0.0</span>      <span class="comment">#信息增益初始化</span></span><br><span class="line">    bestFeature = <span class="number">-1</span>        <span class="comment">#最有特征索引</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeatures):        <span class="comment">#遍历所有特征</span></span><br><span class="line">        <span class="comment">#该特征的所有值，组成的列表</span></span><br><span class="line">        featList = [example[i] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]</span><br><span class="line">        uniqueVals = set(featList)      <span class="comment">#创建集合，元素不可重复</span></span><br><span class="line">        newEntropy = <span class="number">0.0</span>        <span class="comment">#经验条件熵</span></span><br><span class="line">        <span class="keyword">for</span> value <span class="keyword">in</span> uniqueVals:        <span class="comment">#计算信息增益</span></span><br><span class="line">            <span class="comment">#根据第i特征，value值对数据进行划分</span></span><br><span class="line">            subDataSet = splitDataSet(dataSet, i, value)</span><br><span class="line">            <span class="comment">#求划分后数据的经验条件熵</span></span><br><span class="line">            prob = len(subDataSet)/float(len(dataSet))</span><br><span class="line">            newEntropy += prob * calShannoEnt(subDataSet)</span><br><span class="line">        infoGain = baseEntropy - newEntropy     <span class="comment">#求划分前后的信息增益</span></span><br><span class="line">        print(<span class="string">"第%d个特征的增益是%.3f"</span> %(i,infoGain))</span><br><span class="line">        <span class="keyword">if</span>(infoGain &gt; bestInfoGain):</span><br><span class="line">            bestInfoGain = infoGain</span><br><span class="line">            bestFeature = i</span><br><span class="line">    <span class="keyword">return</span> bestFeature</span><br></pre></td></tr></table></figure>
+<p>以上简短的介绍了，决策树的生成和实现。有句俗话，三个臭皮匠顶个诸葛亮，机器学习上也存在同样类似的理论。我们对决策树，进行集成，得到多个基学习器的组合，效果会比使用单个学习器要好。</p>
+<p>首先对集成学习有一个宏观的认识：<br><img src="https://upload-images.jianshu.io/upload_images/665202-373f476feaa7198a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>三种基本的集成方法：Bagging、Boosting和Stacking。分别产生了Random Forest(随机森林)，AdaBoost和GBDT。</p>
+<h1 id="二、集成学习-Ensemble-Learning"><a href="#二、集成学习-Ensemble-Learning" class="headerlink" title="二、集成学习(Ensemble Learning)"></a>二、集成学习(Ensemble Learning)</h1><h2 id="1-Boosting"><a href="#1-Boosting" class="headerlink" title="1.Boosting"></a>1.Boosting</h2><p>对数据集D，首先训练一个弱分类器(学习算法),然后对着同一个数据集进行迭代。对于第一次预测错误的样本，我们增加它的权重，然后降低预测正确样本的权重，然后对这个调整过后的数据集，重新训练分类器。迭代，直到训练结束。每个基学习器都具有不同的权重。</p>
+<p>Boosting算法是一种加法模型。</p>
+<p>算法流程图如下所示：<br><img src="https://upload-images.jianshu.io/upload_images/665202-beba1af45e5488f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>简单介绍AdaBoost，背后复杂的数学公式推导不是我们的重点。后面详细介绍GBDT算法。</p>
+<h3 id="1-1-AdaBoost"><a href="#1-1-AdaBoost" class="headerlink" title="1.1 AdaBoost"></a>1.1 AdaBoost</h3><p>AdaBoost是Adaptive Boosting的缩写，针对同一个训练集训练不同的学习模型，然后将不同的这n个模型，带权相加。AdaBoost是Boosting的经典算法， 主要给出了每一个权重更新的迭代公示。</p>
+<p>具体算法如下：<br><img src="https://upload-images.jianshu.io/upload_images/665202-1387bcea86676cc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="2-Bagging"><a href="#2-Bagging" class="headerlink" title="2.Bagging"></a>2.Bagging</h2><p>Bagging与Boosting有着明显的不同，主要体现在样本的选取，和基学习器的训练与相加上。</p>
+<p>考虑数据集D，D具有m个样本，我们对数据进行有放回的随机采样(自助采样法)，得到具有m个样本的数据集，重复同样的工作T次，便可以得到T个m样本数的数据集。然后对每个训练样本集训练，得到不同的基学习器，对基学习器平均，即得到总的模型。</p>
+<p>算法流程图如下：<br><img src="https://upload-images.jianshu.io/upload_images/665202-05f0f6440116df2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二者的区别："><a href="#二者的区别：" class="headerlink" title="二者的区别："></a>二者的区别：</h4><p><img src="https://upload-images.jianshu.io/upload_images/665202-4dc5270fc68633af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="三、GBDT-Gradient-Boosting-Decision-Tree"><a href="#三、GBDT-Gradient-Boosting-Decision-Tree" class="headerlink" title="三、GBDT(Gradient Boosting Decision Tree)"></a>三、GBDT(Gradient Boosting Decision Tree)</h1><p>这里介绍的GBDT特指，“Greedy Function Approximation：A Gradient Boosting Machine”中提出的算法，使用了一阶展开，也就是梯度下降进行优化。通产情况下，GBDT(Gradient Boosting Decision Tree)泛指所有的梯度提升树算法，也就包括XGBoost和LightGBM。</p>
+<h2 id="1-模型推广："><a href="#1-模型推广：" class="headerlink" title="1.模型推广："></a>1.模型推广：</h2><p>几乎每一个人都知道梯度下降，也就是求解损失函数最小值的一种算法。通过不断迭代更新参数的值<br>来进行损失函数的最小化。梯度下降得参数是一个标量值，而梯度提升，就是将类似的方法从参数空间推广到函数空间。<br>像刚才讲过的Boosting算法，总模型是一个加法模型，由多个基学习器(函数)相加而成。<br><img src="https://upload-images.jianshu.io/upload_images/665202-5a9c410e1398be96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>参数迭代更新，变成基函数迭代更新，目标都是求解目标函数的最小值。</p>
+<h2 id="2-GBDT算法原理："><a href="#2-GBDT算法原理：" class="headerlink" title="2.GBDT算法原理："></a>2.GBDT算法原理：</h2><p>算法：<br><img src="https://upload-images.jianshu.io/upload_images/665202-79317fdb2314c9c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="四、XGBoost"><a href="#四、XGBoost" class="headerlink" title="四、XGBoost"></a>四、XGBoost</h1><p>XGBoost在GBDT的基础上进行了改进，效果得到了明显的提升。一大不同是显式的引入了正则化项，用来约束决策树的复杂度。</p>
+<h2 id="1-引理"><a href="#1-引理" class="headerlink" title="1. 引理"></a>1. 引理</h2><h3 id="1-1-目标函数"><a href="#1-1-目标函数" class="headerlink" title="1.1 目标函数"></a>1.1 目标函数</h3><p>我们求解任何一个监督学习问题，都需要目标函数。<br><img src="https://upload-images.jianshu.io/upload_images/665202-50ca4d8157e68dc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>目标函数由两部分构成，损失函数和正则项。损失函数用来衡量模型的拟合情况，构建更好的预测模型。正则项代表树的复杂度，对于未知数据预测时，使得模型具有更小的方差，使得预测更加的稳定。<br>关于常见的损失函数和正则项如下所示：</p>
+<h3 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h3><h1 id="五、LightGBM"><a href="#五、LightGBM" class="headerlink" title="五、LightGBM"></a>五、LightGBM</h1><h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><h2 id="1-GBDT"><a href="#1-GBDT" class="headerlink" title="1.GBDT"></a>1.GBDT</h2><p><a href="https://blog.csdn.net/u012684933/article/details/51088609" target="_blank" rel="noopener">https://blog.csdn.net/u012684933/article/details/51088609</a><br><a href="https://www.zhihu.com/question/41354392" target="_blank" rel="noopener">https://www.zhihu.com/question/41354392</a><br><a href="https://www.zybuluo.com/yxd/note/611571" target="_blank" rel="noopener">https://www.zybuluo.com/yxd/note/611571</a></p>
+<h2 id="2-XGBoost"><a href="#2-XGBoost" class="headerlink" title="2.XGBoost"></a>2.XGBoost</h2><p>官方文档：<a href="http://xgboost.readthedocs.io/en/latest/" target="_blank" rel="noopener">http://xgboost.readthedocs.io/en/latest/</a></p>
+<p>中文文档：<a href="http://xgboost.apachecn.org/cn/latest/" target="_blank" rel="noopener">http://xgboost.apachecn.org/cn/latest/</a><br><a href="https://blog.csdn.net/a819825294/article/details/51206410" target="_blank" rel="noopener">https://blog.csdn.net/a819825294/article/details/51206410</a><br><a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" target="_blank" rel="noopener">https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/</a></p>
+<p><a href="https://blog.csdn.net/sb19931201/article/details/52557382" target="_blank" rel="noopener">https://blog.csdn.net/sb19931201/article/details/52557382</a><br><a href="https://blog.csdn.net/github_38414650/article/details/76061893" target="_blank" rel="noopener">https://blog.csdn.net/github_38414650/article/details/76061893</a></p>
+<h2 id="3-LightGBM"><a href="#3-LightGBM" class="headerlink" title="3.LightGBM"></a>3.LightGBM</h2><p><a href="https://www.zhihu.com/question/51644470/answer/130946285" target="_blank" rel="noopener">https://www.zhihu.com/question/51644470/answer/130946285</a></p>
+<p>官方文档：<a href="https://lightgbm.readthedocs.io/en/latest/#" target="_blank" rel="noopener">https://lightgbm.readthedocs.io/en/latest/#</a></p>
+<p>中文文档：<a href="http://lightgbm.apachecn.org/cn/latest/" target="_blank" rel="noopener">http://lightgbm.apachecn.org/cn/latest/</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>送人玫瑰，手留余香<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/17/TensorFlow零基础入门教程-一/" class="archive-article-date">
-  	<time datetime="2018-04-17T05:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/17/TensorFlow零基础入门教程-一/">TensorFlow零基础入门教程(一)</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计算图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">张量</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/22/GBDT/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/28/Scikit-learn快速入门教程和实例（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Scikit-learn快速入门教程和实例（一）
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/04/22/谨记-转角/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、决策树-Decision-Tree"><span class="toc-number">1.</span> <span class="toc-text">一、决策树(Decision Tree)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#比如说图中的过滤邮件的流程图："><span class="toc-number">1.1.0.1.</span> <span class="toc-text">比如说图中的过滤邮件的流程图：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-构造决策树"><span class="toc-number">1.2.</span> <span class="toc-text">2.构造决策树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所用到的数据："><span class="toc-number">1.3.</span> <span class="toc-text">所用到的数据：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-特征选择"><span class="toc-number">1.4.</span> <span class="toc-text">3.特征选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-特征选择的重要性："><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 特征选择的重要性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-信息增益"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 信息增益</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-香农熵"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">3.2.1 香农熵</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编写代码计算经验熵"><span class="toc-number">1.4.2.1.1.</span> <span class="toc-text">编写代码计算经验熵</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-信息增益"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">3.2.2 信息增益</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编写代码计算信息增益"><span class="toc-number">1.4.2.2.1.</span> <span class="toc-text">编写代码计算信息增益</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、集成学习-Ensemble-Learning"><span class="toc-number">2.</span> <span class="toc-text">二、集成学习(Ensemble Learning)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Boosting"><span class="toc-number">2.1.</span> <span class="toc-text">1.Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-AdaBoost"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 AdaBoost</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Bagging"><span class="toc-number">2.2.</span> <span class="toc-text">2.Bagging</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二者的区别："><span class="toc-number">2.2.0.1.</span> <span class="toc-text">二者的区别：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、GBDT-Gradient-Boosting-Decision-Tree"><span class="toc-number">3.</span> <span class="toc-text">三、GBDT(Gradient Boosting Decision Tree)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-模型推广："><span class="toc-number">3.1.</span> <span class="toc-text">1.模型推广：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GBDT算法原理："><span class="toc-number">3.2.</span> <span class="toc-text">2.GBDT算法原理：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、XGBoost"><span class="toc-number">4.</span> <span class="toc-text">四、XGBoost</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-引理"><span class="toc-number">4.1.</span> <span class="toc-text">1. 引理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-目标函数"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.1 目标函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、LightGBM"><span class="toc-number">5.</span> <span class="toc-text">五、LightGBM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料："><span class="toc-number">6.</span> <span class="toc-text">参考资料：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-GBDT"><span class="toc-number">6.1.</span> <span class="toc-text">1.GBDT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-XGBoost"><span class="toc-number">6.2.</span> <span class="toc-text">2.XGBoost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LightGBM"><span class="toc-number">6.3.</span> <span class="toc-text">3.LightGBM</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -250,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
