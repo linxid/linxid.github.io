@@ -6,21 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Matlab图像处理-灰度变换 | linxid</title>
+  <title>Tag: GBDT | linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Matlab,图像处理,灰度变换">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Matlab图像处理-灰度变换">
-<meta property="og:url" content="http://yoursite.com/2018/04/21/Matlab图像处理-灰度变换/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="linxid">
+<meta property="og:url" content="http://yoursite.com/tags/GBDT/index.html">
 <meta property="og:site_name" content="linxid">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-87b69cfbbf686b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-223c7e98e3e82e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/665202-8dbdd03ff2c14a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-28T05:40:02.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matlab图像处理-灰度变换">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/665202-87b69cfbbf686b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="linxid">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
   
@@ -156,231 +150,138 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Matlab图像处理-灰度变换" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Matlab图像处理-灰度变换
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/30/决策树、GBDT、XGBoost和LightGBM之XGBoost/" class="archive-article-date">
+  	<time datetime="2018-04-30T00:36:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/30/决策树、GBDT、XGBoost和LightGBM之XGBoost/">决策树、GBDT、XGBoost和LightGBM之XGBoost</a>
     </h1>
   
 
-        
-        <a href="/2018/04/21/Matlab图像处理-灰度变换/" class="archive-article-date">
-  	<time datetime="2018-04-20T20:44:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://upload-images.jianshu.io/upload_images/665202-87b69cfbbf686b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="timg.jpg"><br><a id="more"></a></p>
-<ul>
-<li>Github主页：<a href="https://linxid.github.io/" target="_blank" rel="noopener">https://linxid.github.io/</a></li>
-<li>知乎：<a href="https://zhuanlan.zhihu.com/p/35775368" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35775368</a></li>
-<li>CSDN：<a href="https://blog.csdn.net/linxid/article/details/79973258" target="_blank" rel="noopener">https://blog.csdn.net/linxid/article/details/79973258</a></li>
-</ul>
-<hr>
-<p><strong>亮度（灰度）变换</strong>是一种非常重要的空间域内处理图像的方法，主要介绍几个亮度变换函数，以及应用。</p>
-<h1 id="函数简介"><a href="#函数简介" class="headerlink" title="函数简介"></a>函数简介</h1><h2 id="1-imadjust"><a href="#1-imadjust" class="headerlink" title="1.imadjust"></a>1.imadjust</h2><p>该函数用来调整亮度，可以映射加权至更高的或更低输出值。</p>
-<ul>
-<li><p>imadjust是亮度变换的基本IPT工具，<strong>语法</strong>为：<br><code>g = imadjust(f,[low_ in  high_ in],[low_ out,  high_out],gamma);</code></p>
-</li>
-<li><p><strong>f</strong>：输入图像；<br><strong>low_in,high_in,low_out,high_out</strong>：将low_ in,至high _ in之间的灰度值映射到low _ out,high_ out。low_ in以下的值和high _ in以上的值被剪切掉。空矩阵默认为[0 1];<br><strong>gamma</strong>：决定曲线的形状，对gamma不同的值，如下图所示，默认参数为1.<br><img src="http://upload-images.jianshu.io/upload_images/665202-223c7e98e3e82e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-</li>
-</ul>
-<p><strong>注意</strong>：<br>1.除图像f外，imadjust的其他输入为[0 1]，不论图像的类。若f是unit8，则函数将乘以255。<br>2.若是high_out小于low_out怎会输出图像反转。</p>
-<h1 id="2-对数和对比度拉伸变换"><a href="#2-对数和对比度拉伸变换" class="headerlink" title="2.对数和对比度拉伸变换"></a>2.对数和对比度拉伸变换</h1><p>这两种变换时进行动态范围处理的基本工具。</p>
-<h3 id="对数变换"><a href="#对数变换" class="headerlink" title="对数变换"></a>对数变换</h3><ul>
-<li>实现语法：<code>g = c*log(1+double(f));</code><br>该函数的形状类似于gamma函数，但是gamma曲线形状可变，log不可变。</li>
-<li>主要应用：压缩动态范围<br>比如傅里叶频谱的显示范围很大，高值部分占优，通过log变换可以进行压缩，便于处理。</li>
-<li><strong>注意</strong>：期望将导致的压缩至还原为显示的全范围，以下方法实现。<br><code>gs = im2unit8(mat2gray(g));</code><br>mat2gray将值限定在[0,1]范围内，im2unit8将值限定在[0,255]范围内。<br>###对比度拉伸变换</li>
-<li>实现语法：<code>g = 1./(1 + (m./(double(f)+eps)).^E)</code><br><strong>E</strong>：控制函数的斜率<br><strong>m</strong>：显示的阈值，理想条件下及变成阈值函数。</li>
-<li>主要应用：可以将输入值低于m的灰度级压缩为较暗灰度级范围内，同样，将高于m的灰度级压缩为较亮范围内。<br><strong>变换图像如图所示</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/665202-8dbdd03ff2c14a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><h1 id="3-实例分析"><a href="#3-实例分析" class="headerlink" title="3.实例分析"></a>3.实例分析</h1>我们自己写一个m函数，实现多种亮度（灰度）变换的功能，同时输入变量可以放宽，通过检测输入变量的个数，来设置默认值。</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span> = <span class="title">intrans</span><span class="params">(f,varargin)</span></span></span><br><span class="line"><span class="comment">%intrans 函数对灰度图进行变换</span></span><br><span class="line"><span class="comment">%   g = intrans(f,'neg')计算输入图像的负片</span></span><br><span class="line"><span class="comment">%   </span></span><br><span class="line"><span class="comment">%   g = intrans(f,'log',c,class)计算c*log(1+f)对数拉伸变换</span></span><br><span class="line"><span class="comment">%   后两个参数省略，c默认为1，class用于确定输出的类型为‘unit8’和'unit16',</span></span><br><span class="line"><span class="comment">%   如果省略，输出类型默认和输入一样</span></span><br><span class="line"><span class="comment">%   g = intrans(f,'ganmma',gam)对图像做伽马变换，gam为要求的输入。</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%   </span></span><br><span class="line">error(nargchk(<span class="number">2</span>, <span class="number">4</span>, nargin));</span><br><span class="line"><span class="comment">%将输入参数的个数约束在2-4个</span></span><br><span class="line">classin = class(f);</span><br><span class="line"><span class="comment">%存储输入的类型，用以后用；</span></span><br><span class="line"><span class="keyword">if</span> strcmp(class(f),<span class="string">'double'</span>) &amp; max(f(:)) &gt; <span class="number">1</span> &amp; strcmp(varargin&#123;<span class="number">1</span>&#125;,<span class="string">'log'</span>)</span><br><span class="line">    f = mat2gray(f);</span><br><span class="line"><span class="keyword">else</span> <span class="comment">%对于f的其他类型转换成double类型</span></span><br><span class="line">    f = im2double(f);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%决定转换的类型</span></span><br><span class="line">method = varargin&#123;<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">%varargin是个单元数组</span></span><br><span class="line"><span class="comment">%进行确定好的转换</span></span><br><span class="line"><span class="keyword">switch</span> method</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'neg'</span></span><br><span class="line">        g = imcomplement(f);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'log'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) == <span class="number">1</span></span><br><span class="line">            c = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">2</span></span><br><span class="line">            c = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">3</span></span><br><span class="line">            c = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">            classin = varargin&#123;<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            error(<span class="string">'Incorrect number f input for the log option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        g = c * <span class="built_in">log</span>(<span class="number">1</span> + double(f));</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'gamma'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) &lt; <span class="number">2</span></span><br><span class="line">            error(<span class="string">'Not enough inputs for the gamma option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        gam = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">        g = imadjust(f,[ ],[ ],gam);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'stretch'</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">length</span>(varargin) == <span class="number">1</span></span><br><span class="line">            <span class="comment">%使用默认值</span></span><br><span class="line">            m = mean2(f);</span><br><span class="line">            E = <span class="number">4.0</span>;</span><br><span class="line">        <span class="keyword">elseif</span> <span class="built_in">length</span>(varargin) == <span class="number">3</span></span><br><span class="line">            m = varargin&#123;<span class="number">2</span>&#125;;</span><br><span class="line">            E = varargin&#123;<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            error(<span class="string">'Incorrect number of inputs for the stretch option.'</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        g = <span class="number">1.</span>/(<span class="number">1</span> + (m./(f + <span class="built_in">eps</span>)).^E)</span><br><span class="line">    <span class="keyword">otherwise</span></span><br><span class="line">        error(<span class="string">'Unknown enhancement method.'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%图像格式转变为输入图像的类型</span></span><br><span class="line">g = mat2gray(g);</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>送人玫瑰，手留余香<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GBDT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">灰度变换</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">XGBoost</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LightGBM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Decision Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/21/Matlab图像处理-灰度变换/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2018/04/28/Scikit-learn快速入门教程和实例（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Scikit-learn快速入门教程和实例（一）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/04/17/TensorFlow零基础入门教程-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">TensorFlow零基础入门教程(一)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/30/决策树、GBDT、XGBoost和LightGBM之GBDT/" class="archive-article-date">
+  	<time datetime="2018-04-30T00:23:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数简介"><span class="toc-number">1.</span> <span class="toc-text">函数简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-imadjust"><span class="toc-number">1.1.</span> <span class="toc-text">1.imadjust</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-对数和对比度拉伸变换"><span class="toc-number">2.</span> <span class="toc-text">2.对数和对比度拉伸变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对数变换"><span class="toc-number">2.0.1.</span> <span class="toc-text">对数变换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-实例分析"><span class="toc-number">3.</span> <span class="toc-text">3.实例分析</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/30/决策树、GBDT、XGBoost和LightGBM之GBDT/">决策树、GBDT、XGBoost和LightGBM之GBDT</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GBDT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">XGBoost</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LightGBM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Decision Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -408,9 +309,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
