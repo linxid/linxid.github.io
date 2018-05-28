@@ -6,16 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图论经典算法：最短路径和最小生成树 | linxid</title>
+  <title>图论经典算法(通俗易懂）：最短路径和最小生成树 | linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="图论经典算法：最短路径和最小生成树">
+  <meta name="description" content="一、最短路问题求图的最短路问题，几乎是图论的必学内容，而且在算法分析与设计中也会涉及。很多书上内容，实在没法看，我们的图论教材，更是编的非常糟糕，吐槽，为啥要用自己学校编的破教材，不过据说下一届终于要换书了。">
+<meta name="keywords" content="Dijkstra,Kruskal,最短路,最小生成树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论经典算法(通俗易懂）：最短路径和最小生成树">
 <meta property="og:url" content="http://yoursite.com/2018/05/10/图论经典算法：最短路径和最小生成树/index.html">
 <meta property="og:site_name" content="linxid">
+<meta property="og:description" content="一、最短路问题求图的最短路问题，几乎是图论的必学内容，而且在算法分析与设计中也会涉及。很多书上内容，实在没法看，我们的图论教材，更是编的非常糟糕，吐槽，为啥要用自己学校编的破教材，不过据说下一届终于要换书了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T22:48:40.087Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-7e7ce189d4ce3d25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-1ea8bbef249ea663.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-7fbea09f3ba66f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-8aaabcb7c51029a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-f0afe9f1227aac13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-619559f3887fdeab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-f4a849085fe24cd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-3beeab23403c8331.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-5b719bff3091199b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-eb12abcd07cd078f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-28T21:35:27.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图论经典算法：最短路径和最小生成树">
+<meta name="twitter:title" content="图论经典算法(通俗易懂）：最短路径和最小生成树">
+<meta name="twitter:description" content="一、最短路问题求图的最短路问题，几乎是图论的必学内容，而且在算法分析与设计中也会涉及。很多书上内容，实在没法看，我们的图论教材，更是编的非常糟糕，吐槽，为啥要用自己学校编的破教材，不过据说下一届终于要换书了。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/665202-7e7ce189d4ce3d25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
   
@@ -158,7 +173,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      图论经典算法：最短路径和最小生成树
+      图论经典算法(通俗易懂）：最短路径和最小生成树
     </h1>
   
 
@@ -171,7 +186,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="一、最短路问题"><a href="#一、最短路问题" class="headerlink" title="一、最短路问题"></a>一、最短路问题</h1><p>求图的最短路问题，几乎是图论的必学内容，而且在算法分析与设计中也会涉及。很多书上内容，<br>实在没法看，我们的图论教材，更是编的非常糟糕，吐槽，为啥要用自己学校编的破教材，不过据说<br>下一届终于要换书了。</p>
+<a id="more"></a>
+<p>言归正传，开始说明最短路问题。</p>
+<h2 id="1-问题描述："><a href="#1-问题描述：" class="headerlink" title="1.问题描述："></a>1.问题描述：</h2><p>对一幅图G，我们对每一条边赋权w(e)，成为一个赋权图。H是G的一个子图，则W(H) = sigma(w(e)),<br>也就是对每条边的权求和。寻找从一个点a到另一个b的一个子图，使得权和最小，即为最短路问题。</p>
+<h2 id="2-算法描述："><a href="#2-算法描述：" class="headerlink" title="2.算法描述："></a>2.算法描述：</h2><h4 id="Dijkstra-迪杰斯特拉算法算法-："><a href="#Dijkstra-迪杰斯特拉算法算法-：" class="headerlink" title="Dijkstra(迪杰斯特拉算法算法)："></a>Dijkstra(迪杰斯特拉算法算法)：</h4><p><img src="https://upload-images.jianshu.io/upload_images/665202-7e7ce189d4ce3d25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>我表示看到后，是懵逼的，接下来详细分析下。</p>
+<h4 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解:"></a>算法图解:</h4><p>其实就是不断求一个点集合中的每个点，和与他相邻点最短路的最小值。我们还是从实例出发，更<br>容易讲解。我会把上述步骤，拆解为多步。<br>我们求下面这个图从A到L的最短路。<br><img src="https://upload-images.jianshu.io/upload_images/665202-1ea8bbef249ea663.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>第一步：<br>令a1 = A(便于标记),t(a1) = 0(表示点a1到a的最短路)，S={a1}(被选择的点的集合)，T = 0<br>(空集 表示被选择的最短路的边集)。<br><img src="https://upload-images.jianshu.io/upload_images/665202-7fbea09f3ba66f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>第二步：<br>求与S中的点a1与他相邻的点的距离d，取点a2 = C使得距离最小。令S={a1,a2}，T={AC}。<br><img src="https://upload-images.jianshu.io/upload_images/665202-8aaabcb7c51029a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>第三步：<br>重复第二步，求S中的点a1,a2的相邻点中(去除已选择点)，距离最小的那个，则为AB，CE。<br>再取AB，CE中权和最小的一个，B，所以a3=B,令S={a1,a2,a3}，T={AC,AB}。</li>
+<li>……<br>持续下去，不断寻找，S集合中的每个点与他相邻点的最小距离，然后再这些最小距离中找到最小的<br>那个加入到S中，同时加入相应的边。<br><img src="https://upload-images.jianshu.io/upload_images/665202-f0afe9f1227aac13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/665202-619559f3887fdeab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>直到到达终点L为止。最后得到的最短路为：<br><img src="https://upload-images.jianshu.io/upload_images/665202-f4a849085fe24cd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+<h5 id="此算法是多项式时间可求解的，"><a href="#此算法是多项式时间可求解的，" class="headerlink" title="此算法是多项式时间可求解的，"></a>此算法是多项式时间可求解的，</h5><p>关于算法的实现可以在参考资料中找到。</p>
+<h1 id="二、最小生成树"><a href="#二、最小生成树" class="headerlink" title="二、最小生成树"></a>二、最小生成树</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>同样在一个连通赋权图中，寻找一颗生成树使得权和最小。<br>此算法比较简单，很容易理解。</p>
+<h2 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h2><p><strong>Kruskal算法：</strong><br><img src="https://upload-images.jianshu.io/upload_images/665202-3beeab23403c8331.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>不断寻找最小权的边即可。</p>
+<p>比如，寻找下图的最小生成树。<br><img src="https://upload-images.jianshu.io/upload_images/665202-5b719bff3091199b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>结果如下<br><img src="https://upload-images.jianshu.io/upload_images/665202-eb12abcd07cd078f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>1.<a href="https://blog.csdn.net/u012469987/article/details/51319574" target="_blank" rel="noopener">https://blog.csdn.net/u012469987/article/details/51319574</a><br>2.<a href="https://www.cnblogs.com/hxsyl/p/3270401.html" target="_blank" rel="noopener">https://www.cnblogs.com/hxsyl/p/3270401.html</a></p>
+
       
 
       
@@ -210,6 +242,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Kruskal</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">最小生成树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -274,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/20/Xlearn/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/30/决策树、GBDT、XGBoost和LightGBM之XGBoost/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">决策树、GBDT、XGBoost和LightGBM之XGBoost</div>
+    <a href="/2018/05/10/Xlearn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xlearn的安装与实战</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、最短路问题"><span class="toc-number">1.</span> <span class="toc-text">一、最短路问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述："><span class="toc-number">1.1.</span> <span class="toc-text">1.问题描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-算法描述："><span class="toc-number">1.2.</span> <span class="toc-text">2.算法描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dijkstra-迪杰斯特拉算法算法-："><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Dijkstra(迪杰斯特拉算法算法)：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法图解"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">算法图解:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#此算法是多项式时间可求解的，"><span class="toc-number">1.2.0.2.1.</span> <span class="toc-text">此算法是多项式时间可求解的，</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、最小生成树"><span class="toc-number">2.</span> <span class="toc-text">二、最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">2.1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法描述："><span class="toc-number">2.2.</span> <span class="toc-text">算法描述：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -538,6 +584,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">帮助</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Dijkstra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Kruskal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Xlearn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">deepFFM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FFM</a>
               </li>
             
             <div class="clearfix"></div>
