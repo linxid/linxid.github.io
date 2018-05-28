@@ -8,19 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>linxid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Introduction机器学习中的有一个利器，广泛用于Kaggle或类似的数据比赛。 ####　xlearn的优势：  1.通用性好，包括主流的算法（lr, fm, ffm 等），用户不用再切换于不同软件之间 ２.性能好,测试 xLearn 可以比 libfm 快13倍，比 libffm 和 liblinear 快5倍 3.易用性和灵活性，xLearn 提供简单的 python 接口，并且">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="linxid">
 <meta property="og:url" content="http://yoursite.com/2018/05/20/Xlearn/index.html">
 <meta property="og:site_name" content="linxid">
-<meta property="og:description" content="一、Introduction机器学习中的有一个利器，广泛用于Kaggle或类似的数据比赛。 ####　xlearn的优势：  1.通用性好，包括主流的算法（lr, fm, ffm 等），用户不用再切换于不同软件之间 ２.性能好,测试 xLearn 可以比 libfm 快13倍，比 libffm 和 liblinear 快5倍 3.易用性和灵活性，xLearn 提供简单的 python 接口，并且">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/665202-9ba262ad548c92f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-05-20T07:25:50.378Z">
+<meta property="og:updated_time" content="2018-05-28T21:27:29.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linxid">
-<meta name="twitter:description" content="一、Introduction机器学习中的有一个利器，广泛用于Kaggle或类似的数据比赛。 ####　xlearn的优势：  1.通用性好，包括主流的算法（lr, fm, ffm 等），用户不用再切换于不同软件之间 ２.性能好,测试 xLearn 可以比 libfm 快13倍，比 libffm 和 liblinear 快5倍 3.易用性和灵活性，xLearn 提供简单的 python 接口，并且">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="linxid" type="application/atom+xml">
@@ -162,15 +159,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
 <h1 id="一、Introduction"><a href="#一、Introduction" class="headerlink" title="一、Introduction"></a>一、Introduction</h1><p>机器学习中的有一个利器，广泛用于Kaggle或类似的数据比赛。</p>
-<p>####　xlearn的优势：</p>
-<ul>
+<h4 id="xlearn的优势："><a href="#xlearn的优势：" class="headerlink" title="xlearn的优势："></a>xlearn的优势：</h4><ul>
 <li>1.通用性好，包括主流的算法（lr, fm, ffm 等），用户不用再切换于不同软件之间</li>
 <li>２.性能好,测试 xLearn 可以比 libfm 快13倍，比 libffm 和 liblinear 快5倍</li>
 <li>3.易用性和灵活性，xLearn 提供简单的 python 接口，并且集合了机器学习比赛中许多有用的功能</li>
-<li>4.可扩展性好。xLearn 提供 out-of-core 计算，利用外存计算可以在单机处理 1TB 数据<br><img src="https://upload-images.jianshu.io/upload_images/665202-9ba262ad548c92f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="二、xlearn安装："><a href="#二、xlearn安装：" class="headerlink" title="二、xlearn安装："></a>二、xlearn安装：</h1>目前xlearn只支持，Linux和Mac，Windows用户可能要等等了。以下操作在Ubuntu系统进行。<h2 id="2-1安装GCC-或Clang-和CMake："><a href="#2-1安装GCC-或Clang-和CMake：" class="headerlink" title="2.1安装GCC(或Clang)和CMake："></a>2.1安装GCC(或Clang)和CMake：</h2>建议安装GCC，Clang下载文件大，而且安装过程出现问题，便直接安装的GCC。<h3 id="安装gcc"><a href="#安装gcc" class="headerlink" title="安装gcc"></a>安装gcc</h3><code>sudo apt-get  install  build-essential</code></li>
+<li>4.可扩展性好。xLearn 提供 out-of-core 计算，利用外存计算可以在单机处理 1TB 数据<br><img src="https://upload-images.jianshu.io/upload_images/665202-9ba262ad548c92f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
 </ul>
+<h1 id="二、xlearn安装："><a href="#二、xlearn安装：" class="headerlink" title="二、xlearn安装："></a>二、xlearn安装：</h1><p>目前xlearn只支持，Linux和Mac，Windows用户可能要等等了。以下操作在Ubuntu系统进行。</p>
+<h2 id="2-1安装GCC-或Clang-和CMake："><a href="#2-1安装GCC-或Clang-和CMake：" class="headerlink" title="2.1安装GCC(或Clang)和CMake："></a>2.1安装GCC(或Clang)和CMake：</h2><p>建议安装GCC，Clang下载文件大，而且安装过程出现问题，便直接安装的GCC。</p>
+<h3 id="安装gcc"><a href="#安装gcc" class="headerlink" title="安装gcc"></a>安装gcc</h3><p><code>sudo apt-get  install  build-essential</code></p>
 <p>测试是否安装成功：<br><code>gcc --version</code></p>
 <p>出现以下界面代表安装成功：</p>
 <p><code>gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609
@@ -293,15 +292,6 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
   
 <nav id="article-nav">
   
-    <a href="/2018/05/29/Big-Data-Analysis-and-Mining/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Big Data Analysis and Mining
-        
-      </div>
-    </a>
-  
   
     <a href="/2018/05/10/图论经典算法：最短路径和最小生成树/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">图论经典算法：最短路径和最小生成树</div>
@@ -331,7 +321,7 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Introduction"><span class="toc-number">1.</span> <span class="toc-text">一、Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、xlearn安装："><span class="toc-number">2.</span> <span class="toc-text">二、xlearn安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1安装GCC-或Clang-和CMake："><span class="toc-number">2.1.</span> <span class="toc-text">2.1安装GCC(或Clang)和CMake：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装gcc"><span class="toc-number">2.1.1.</span> <span class="toc-text">安装gcc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装cmake"><span class="toc-number">2.1.2.</span> <span class="toc-text">安装cmake</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-安装xlearn："><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装xlearn：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、xlearn实战："><span class="toc-number">3.</span> <span class="toc-text">三、xlearn实战：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-快速入门"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-更进一步："><span class="toc-number">3.2.</span> <span class="toc-text">3.2 更进一步：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-与Sklearn相结合"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 与Sklearn相结合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料："><span class="toc-number">3.3.1.</span> <span class="toc-text">参考资料：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Introduction"><span class="toc-number">1.</span> <span class="toc-text">一、Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#xlearn的优势："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">xlearn的优势：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、xlearn安装："><span class="toc-number">2.</span> <span class="toc-text">二、xlearn安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1安装GCC-或Clang-和CMake："><span class="toc-number">2.1.</span> <span class="toc-text">2.1安装GCC(或Clang)和CMake：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装gcc"><span class="toc-number">2.1.1.</span> <span class="toc-text">安装gcc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装cmake"><span class="toc-number">2.1.2.</span> <span class="toc-text">安装cmake</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-安装xlearn："><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装xlearn：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、xlearn实战："><span class="toc-number">3.</span> <span class="toc-text">三、xlearn实战：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-快速入门"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-更进一步："><span class="toc-number">3.2.</span> <span class="toc-text">3.2 更进一步：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-与Sklearn相结合"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 与Sklearn相结合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料："><span class="toc-number">3.3.1.</span> <span class="toc-text">参考资料：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -440,18 +430,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">灰度变换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
@@ -469,22 +447,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sklearn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,6 +487,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Decision Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">灰度变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sklearn</a>
               </li>
              
               <li class="article-tag-list-item">

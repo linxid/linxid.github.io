@@ -152,105 +152,15 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Big-Data-Analysis-and-Mining" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/29/Big-Data-Analysis-and-Mining/">Big Data Analysis and Mining</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/29/Big-Data-Analysis-and-Mining/" class="archive-article-date">
-  	<time datetime="2018-05-28T21:08:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://upload-images.jianshu.io/upload_images/665202-bb94c950d325d43f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-        
-          <a class="article-more-a" href="/2018/05/29/Big-Data-Analysis-and-Mining/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/29/Big-Data-Analysis-and-Mining/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Xlearn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="一、Introduction"><a href="#一、Introduction" class="headerlink" title="一、Introduction"></a>一、Introduction</h1><p>机器学习中的有一个利器，广泛用于Kaggle或类似的数据比赛。</p>
-<p>####　xlearn的优势：</p>
-<ul>
-<li>1.通用性好，包括主流的算法（lr, fm, ffm 等），用户不用再切换于不同软件之间</li>
-<li>２.性能好,测试 xLearn 可以比 libfm 快13倍，比 libffm 和 liblinear 快5倍</li>
-<li>3.易用性和灵活性，xLearn 提供简单的 python 接口，并且集合了机器学习比赛中许多有用的功能</li>
-<li>4.可扩展性好。xLearn 提供 out-of-core 计算，利用外存计算可以在单机处理 1TB 数据<br><img src="https://upload-images.jianshu.io/upload_images/665202-9ba262ad548c92f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="二、xlearn安装："><a href="#二、xlearn安装：" class="headerlink" title="二、xlearn安装："></a>二、xlearn安装：</h1>目前xlearn只支持，Linux和Mac，Windows用户可能要等等了。以下操作在Ubuntu系统进行。<h2 id="2-1安装GCC-或Clang-和CMake："><a href="#2-1安装GCC-或Clang-和CMake：" class="headerlink" title="2.1安装GCC(或Clang)和CMake："></a>2.1安装GCC(或Clang)和CMake：</h2>建议安装GCC，Clang下载文件大，而且安装过程出现问题，便直接安装的GCC。<h3 id="安装gcc"><a href="#安装gcc" class="headerlink" title="安装gcc"></a>安装gcc</h3><code>sudo apt-get  install  build-essential</code></li>
-</ul>
-<p>测试是否安装成功：<br><code>gcc --version</code></p>
-<p>出现以下界面代表安装成功：</p>
-<p><code>gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609
-Copyright (C) 2015 Free Software Foundation, Inc.</code></p>
-<h3 id="安装cmake"><a href="#安装cmake" class="headerlink" title="安装cmake"></a>安装cmake</h3><p>我实在不明白为什么要下载文件，等等那么麻烦。一行搞定。</p>
-<p><code>sudo apt-get install cmake</code></p>
-<p>测试是否安装成功：<br><code>cmake --version</code></p>
-<p>出现以下界面代表安装成功：</p>
-<p><code>cmake version 3.5.1
-CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
-<h2 id="2-2-安装xlearn："><a href="#2-2-安装xlearn：" class="headerlink" title="2.2 安装xlearn："></a>2.2 安装xlearn：</h2><p><code>sudo pip install xlearn</code></p>
-<p>这个地方注意下，如果安装了Anaconda，确认xlearn是否安装在你所运行的Anaconda的虚拟环境中。找到安装包的位置可以查看下，如果显示安装成功，却不能<code>import xlearn</code>，八成是这个问题。</p>
-<h1 id="三、xlearn实战："><a href="#三、xlearn实战：" class="headerlink" title="三、xlearn实战："></a>三、xlearn实战：</h1><p>简单实战，每一行都有详细的注释。主要是简单学会使用模型，并没有对特征过多分析。</p>
-<h2 id="3-1-快速入门"><a href="#3-1-快速入门" class="headerlink" title="3.1 快速入门"></a>3.1 快速入门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlearn <span class="keyword">as</span> xl</span><br><span class="line">ffm_model = xl.create_ffm()</span><br><span class="line"><span class="comment"># 训练集</span></span><br><span class="line">ffm_model.setTrain(<span class="string">"small_train.txt"</span>)</span><br><span class="line"><span class="comment"># 设置验证集</span></span><br><span class="line">ffm_model.setValidate(<span class="string">"small_test.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">param = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.002</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置不同的评价指标</span></span><br><span class="line"><span class="comment"># 分类问题：acc(Accuracy);prec(precision);f1(f1 score);auc(AUC score)</span></span><br><span class="line">param1 = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.002</span>,<span class="string">'metric'</span>:<span class="string">'rmse'</span>&#125;</span><br><span class="line"><span class="comment"># 回归问题：mae,mape,rmsd(RMSE)</span></span><br><span class="line">param2 = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.002</span>, <span class="string">'metric'</span>:<span class="string">'rmse'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">ffm_model.fit(param, <span class="string">"model.out"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试集</span></span><br><span class="line">ffm_model.setTest(<span class="string">"small_test.txt"</span>)</span><br><span class="line"><span class="comment"># 输出样本预测概率，范围(-1,1)</span></span><br><span class="line">ffm_model.predict(<span class="string">"model.out"</span>,<span class="string">"output.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置预测概率范围为(0,1)</span></span><br><span class="line">ffm_model.setSigmoid()</span><br><span class="line">ffm_model.predict(<span class="string">"model.out"</span>,<span class="string">"output.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转化为二分类(0,1)，没有阈值吗？？？</span></span><br><span class="line">ffm_model.setSign()</span><br><span class="line">ffm_model.predict(<span class="string">"model.out"</span>,<span class="string">"output.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型保存为txt格式，</span></span><br><span class="line">ffm_model.setTXTModel(<span class="string">"model.txt"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="3-2-更进一步："><a href="#3-2-更进一步：" class="headerlink" title="3.2 更进一步："></a>3.2 更进一步：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择不同的机器学习算法</span></span><br><span class="line"><span class="comment"># FM，LR可以使用csv和libsvm格式，FFM应该接受libffm格式</span></span><br><span class="line">fm_model = xl.create_fm()</span><br><span class="line">lr_model = xl.create_linear()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置交叉验证（Cross Validation）</span></span><br><span class="line">ffm_model = xl.create_ffm()</span><br><span class="line">ffm_model.setTrain(<span class="string">"train.txt"</span>)</span><br><span class="line">param = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.002</span>,<span class="string">'fold'</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># 默认5-folds，可通过param设置</span></span><br><span class="line">ffm_model.cv(param)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置优化算法:SGD,AdaGrad,Ftrl(Follow-the-Regularized-Leader)</span></span><br><span class="line">param3 = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.002</span>,<span class="string">'lambda'</span>:<span class="number">0.01</span>,<span class="string">'opt'</span>:<span class="string">'ftrl'</span>&#125;</span><br><span class="line"><span class="comment"># Ftrl的额外参数</span></span><br><span class="line">param = &#123;<span class="string">'alpha'</span>:<span class="number">0.002</span>,<span class="string">'beta'</span>:<span class="number">0.8</span>,<span class="string">'lambda_1'</span>:<span class="number">0.001</span>,<span class="string">'lambda_2'</span>:<span class="number">1.0</span>&#125;</span><br><span class="line"><span class="comment"># 如何自动进行超参数训练</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置Epoch数量</span></span><br><span class="line">param4 = &#123;<span class="string">'task'</span>:<span class="string">'bianry'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.01</span>,<span class="string">'epoch'</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># Early stopping，设置提前停止窗口</span></span><br><span class="line">param5 = &#123;<span class="string">'task'</span>:<span class="string">'binary'</span>,<span class="string">'lr'</span>:<span class="number">0.2</span>,<span class="string">'lambda'</span>:<span class="number">0.002</span>,<span class="string">'epoch'</span>:<span class="number">10</span>,<span class="string">'stop_window'</span>:<span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Lock-Free 训练，可以充分利用多核来加速训练，但是结果具有不确定性,默认开启</span></span><br><span class="line">ffm_model.disableLockFree()  <span class="comment"># disable lock-free training</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance-wise Normalization，对CTR预测问题，非常有效,但是有损性能</span></span><br><span class="line">ffm_model.disableNorm()    <span class="comment"># disable Instance-wise Normalization</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Quite Training 提高训练速度，不计算评指标，只训练模型</span></span><br><span class="line">ffm_model.setQuiet()</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-与Sklearn相结合"><a href="#3-3-与Sklearn相结合" class="headerlink" title="3.3 与Sklearn相结合"></a>3.3 与Sklearn相结合</h2><p>建议利用sklearn接口，众多sklearn的功能都能使用。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用Sklearn的API</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">iris_data = load_iris()</span><br><span class="line">X = iris_data[<span class="string">'data'</span>]</span><br><span class="line">y = iris_data[<span class="string">'target'</span> == <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">X_train,X_test,y_train, y_test = train_test_split(X,y,test_size=<span class="number">0.3</span>,random_state=<span class="number">0</span>)</span><br><span class="line">linear_model = xl.LRModel(task=<span class="string">'binary'</span>,init=<span class="number">0.1</span>,epoch=<span class="number">10</span>,lr=<span class="number">0.1</span>,reg_lambda=<span class="number">1.0</span>,opt=<span class="string">'sgd'</span>)</span><br><span class="line"></span><br><span class="line">linear_model.fit(X_train,y_train,eval_set=[X_test, y_test],is_lock_free=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">y_pred = linear_model.predict(X_test)</span><br></pre></td></tr></table></figure></p>
-<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p>1.<a href="http://www.sohu.com/a/206728248_206784" target="_blank" rel="noopener">xLearn：一款专门针对大规模稀疏数据的机器学习库</a></p>
-<p>2.<a href="http://xlearn-doc.readthedocs.io/en/latest/start.html" target="_blank" rel="noopener">xlearn官网</a></p>
-<p>3.<a href="https://github.com/aksnzhy/xlearn" target="_blank" rel="noopener">xlearn Github</a></p>
-
+        <p><img src="https://upload-images.jianshu.io/upload_images/665202-86b903690b621f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>
+        
+          <a class="article-more-a" href="/2018/05/20/Xlearn/#more">more >></a>
+        
       
 
       
@@ -390,10 +300,6 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
         		</li>
       		 
@@ -411,6 +317,10 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Decision Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -486,10 +396,6 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
         		</li>
       		 
@@ -507,6 +413,10 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Decision Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -1006,10 +916,94 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).</code></p>
 
 
   
+    <article id="post-第一篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/第一篇/">MarkDown语法手册</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/09/第一篇/" class="archive-article-date">
+  	<time datetime="2018-04-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>tags: 小书匠,语法,MARKDOWN,帮助<br>grammar_abbr: true<br>grammar_table: true<br>grammar_defList: true<br>grammar_emoji: true<br>grammar_footnote: true<br>grammar_ins: true<br>grammar_mark: true<br>grammar_sub: true<br>grammar_sup: true</p>
+        
+          <a class="article-more-a" href="/2018/04/09/第一篇/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小书匠</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">帮助</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/09/第一篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -1100,18 +1094,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">灰度变换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
@@ -1129,22 +1111,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sklearn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,6 +1151,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Decision Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">灰度变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sklearn</a>
               </li>
              
               <li class="article-tag-list-item">
